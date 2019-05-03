@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {% parent %}
+    <style>
+      .foo {
+        background-color: blue;
+      };
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Quick Tour of Pivotal Web Services</h1>
+    </div>
+
+<OL>
+<LI><b>Using the Web Interface <i>Apps manager</i></b> After you have successfully &quot;pushed&quot; your application you can monitor it visually. Open a new browser window and open the <i>Apps Manager</i> by visiting <a href="https://console.run.pivotal.io">https://console.run.pivotal.io</a> and login to your account. Navigate to the <i>org</i> and <i>space</i> containing your application.<BR><BR><b>Why this is important?</b> The Apps Manager allows your team to monitor and track the state of your application in an easy to use interface.<br><BR></LI>
+<LI><b>Scale up your application to multiple instances.</b> Scale up the number of instances using the <i>Apps Manager</i> and see Cloud Foundry automatically deploy new instances of your application. For this application 4 is a good number. Revisit your application in the browser and hit refresh and note that the IP addressa and the instance number are changing indicating you are accessing a different instance of your app.<BR><BR>
+From the CLI: <code>cf scale intro2pws -i 4</code><BR><BR><b>Why this is important?</b> This shows how Cloud Foundry automatically handles the routing and load balancing for multiple copies of your application. Multiple instance support is beneficial for handling increased load or improving availability of your application. PWS automatically distributes multiple copies between availability zones which protects your app availability from network or data center issues.<BR><BR></LI>
+<LI><b>Look at the logs.</b> Using the <i>Apps Manager</i> click on the "&quot;Logs&quot; tab and see the logs from your application. Visit the demo app and load different pages.<BR><BR>
+From the CLI: <code>cf logs intro2pws</code><BR><BR><b>Why this is important?</b> This demonstrates how Cloud Foundry aggregates and consolidates the logs from your different instances automatically.<BR><BR></LI>
+<LI><b>Crash Recovery</b>Organize two web browsers side by side. One with the <i>Apps Manager</i> visible and one with the intro app visible. On the home screen of the intro app you will see a link labeled &quot;crash&quot;. Click on this link and look at the <i>Apps Manager</i> and see that one of the instances will indicate it is &quot;Starting&quot; Also note that you will see in the &quot;Events&quot; area an entry indicating the application has crashed. You can also visit the &quot;Logs&quot; tab and see what caused the crash. (hint: an uncaught exception).<BR><BR><b>Why this is important?</b> Cloud Foundry is continually monitoring the state of your application instances and automatically restarting them in the event of a crash.<BR><BR></LI>
+</OL> 
+{% endblock %}
+

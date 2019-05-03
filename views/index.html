@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="page-header">
+<h1>Welcome to Pivotal Web Services built on <A href="https://www.pivotal.io/platform">Cloud Foundry</A></h1>
+<P>Thank you for deploying this sample application on Pivotal Web Services. Check out the &quot;Tour&quot; tab to check out the features of Cloud Foundry hosted by <a href="https://www.pivotal.io">Pivotal</A>. Scale up the application, crash individual instances and see how Cloud Foundry automatically routes requests and restarts individual instances.</P>
+<h1>App Information</h1>
+<P>
+<b>Name:</b> {{ name }}<br>
+<b>Host:</b> {{ host }}<br>
+<b>Port:</b> {{ port }}<br>
+<b>Index:</b> {{index}}<br>
+<b><a href="crash">CRASH THIS APP</A></b><br>
+</P>
+</div>
+{% endblock %}
+
+{% block js %}
+    {% parent %}
+{% endblock %}

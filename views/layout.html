@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pivotal Web Services Example Application</title>
+
+    {% block head %}
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"/>
+    {% endblock %}
+
+  </head>
+  <body>
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    {% block js %}
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    {% endblock %}
+  </body>
+</html>
