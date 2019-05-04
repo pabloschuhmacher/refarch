@@ -30,6 +30,12 @@ app.get('/tour', function (req, res) {
   });
 });
 
+app.get('/links', function (req, res) {
+  res.render('links', {
+    activePage: 'links'
+  });
+});
+
 app.get('/crash', function () {
   fs.readFile('somefile.txt', function (err, data) {
     if (err) throw err;
